@@ -1,0 +1,14 @@
+<?php
+
+/**
+ * @file
+ * Ternozor theme hooks.
+ */
+
+/**
+ * Implements hook_page_attachments().
+ * Force-attach the global library on every page.
+ */
+function ternozor_page_attachments(array &$attachments): void {
+  $attachments['#attached']['library'][] = 'ternozor/global';
+}

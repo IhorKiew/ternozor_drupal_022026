@@ -1,0 +1,6 @@
+name: Ternozor
+type: theme
+base theme: olivero
+core_version_requirement: ^11
+libraries:
+  - ternozor/global

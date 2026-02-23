@@ -1,0 +1,490 @@
+/* RESTORE: "ideal hero" overlay layout (no Olivero chrome) */
+
+/* 0) Remove Olivero canvas backgrounds that create frames */
+html, body { height: 100%; }
+body {
+  margin: 0 !important;
+  background: transparent !important;
+}
+.dialog-off-canvas-main-canvas,
+.region,
+.region--content,
+.node__content,
+.text-content {
+  background: transparent !important;
+}
+
+/* 1) Hide Olivero page title + sidebar wrapper chrome */
+#block-ternozor-page-title { display:none !important; }
+.region--sidebar-first {
+  position: static !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* 2) HERO full-bleed */
+.tern-heroWrap{
+  position: relative !important;
+  background-image:url("/sites/default/files/2026-02/91621bf1-09d0-4a86-a386-20eca4b312a3.jpg") !important;
+  background-size:cover !important;
+  background-position:center center !important;
+  background-repeat:no-repeat !important;
+  min-height:100vh !important;
+  width:100vw !important;
+  overflow:hidden !important;
+}
+
+/* Remove width constraints inside hero */
+.tern-container{ width:100% !important; max-width:none !important; padding:0 !important; }
+.tern-hero{ width:100% !important; }
+
+/* 3) HERO text placement (bottom-left) */
+.tern-hero__text{
+  width:100% !important;
+  padding: 0 4vw 7vh !important;
+}
+
+/* Title: big, bold, readable, bottom */
+.tern-hero__title{
+  margin:0 !important;
+  font-weight:800 !important;
+  letter-spacing:-0.02em !important;
+  line-height:0.95 !important;
+  font-size:clamp(44px, 7vw, 92px) !important;
+  color:#fff !important;
+  text-shadow:0 6px 28px rgba(0,0,0,.55) !important;
+}
+.tern-hero__title span{ display:inline !important; margin-right:.25em !important; }
+
+/* Hide lead/actions/media for now (как было в “идеальном” этапе) */
+.tern-hero__lead,
+.tern-hero__actions,
+.tern-hero__media { display:none !important; }
+
+/* 4) LOGO + FUND NAME (top-left overlay) */
+#block-ternozor-site-branding{
+  position: fixed !important;
+  top: 18px !important;
+  left: 18px !important;
+  z-index: 1000 !important;
+}
+.site-branding__inner{
+  display:flex !important;
+  align-items:center !important;
+  gap: 14px !important;
+}
+.site-branding__logo img{
+  width: 92px !important;   /* размер логотипа как “видимый”, можно потом +/− */
+  height:auto !important;
+  display:block !important;
+}
+
+/* Show fund name next to logo (white, compact) */
+.site-branding__text{ display:block !important; }
+.site-branding__name a{
+  color:#fff !important;
+  text-decoration:none !important;
+  font-weight:700 !important;
+  font-size:18px !important;
+  line-height:1.1 !important;
+  text-shadow:0 3px 16px rgba(0,0,0,.35) !important;
+  white-space:nowrap !important;
+}
+
+/* 5) TOP MENU centered and aligned with logo center */
+.primary-nav{
+  position: fixed !important;
+  top: 52px !important;          /* подгон под центр логотипа */
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 900 !important;
+  width: auto !important;
+}
+.primary-nav__menu{
+  display:flex !important;
+  gap: 46px !important;
+  justify-content:center !important;
+  align-items:center !important;
+}
+.primary-nav__menu-link{
+  color:#fff !important;
+  font-weight:600 !important;
+  font-size:18px !important;
+  text-decoration:none !important;
+  text-shadow:0 3px 16px rgba(0,0,0,.35) !important;
+}
+
+/* 6) Kill bottom/secondary nav chrome that sometimes appears */
+.region--secondary-menu,
+.secondary-nav,
+.block-search-wide,
+.block-search-narrow,
+.region--highlighted,
+.region--breadcrumb { display:none !important; }
+
+/* 7) Make sure nothing adds extra page padding causing scroll */
+#content { padding:0 !important; margin:0 !important; }
+
+/* === HOTFIX: remove blue branding panel + kill left sidebar gap === */
+
+/* 1) Make sidebar region not reserve layout width (no white left column) */
+.region--sidebar-first{
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 0 !important;
+  max-width: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: visible !important;
+  background: transparent !important;
+}
+
+/* Force content to full viewport width */
+.region--content,
+#content,
+.layout--pass--content-medium{
+  width: 100vw !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 2) Kill any backgrounds/boxes around branding */
+#block-ternozor-site-branding,
+.site-branding__inner,
+.site-branding__logo,
+.site-branding__text,
+.site-branding__name,
+.site-branding__name a{
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Keep branding overlay and visible */
+#block-ternozor-site-branding{
+  width: auto !important;
+  height: auto !important;
+}
+
+/* 3) Re-assert hero is full screen and pinned correctly */
+.tern-heroWrap{
+  min-height: 100vh !important;
+  width: 100vw !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: flex-end !important;
+}
+
+
+/* === HOTFIX: remove blue branding panel + kill left sidebar gap === */
+
+/* 1) Make sidebar region not reserve layout width (no white left column) */
+.region--sidebar-first{
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 0 !important;
+  max-width: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: visible !important;
+  background: transparent !important;
+}
+
+/* Force content to full viewport width */
+.region--content,
+#content,
+.layout--pass--content-medium{
+  width: 100vw !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 2) Kill any backgrounds/boxes around branding */
+#block-ternozor-site-branding,
+.site-branding__inner,
+.site-branding__logo,
+.site-branding__text,
+.site-branding__name,
+.site-branding__name a{
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Keep branding overlay and visible */
+#block-ternozor-site-branding{
+  width: auto !important;
+  height: auto !important;
+}
+
+/* 3) Re-assert hero is full screen and pinned correctly */
+.tern-heroWrap{
+  min-height: 100vh !important;
+  width: 100vw !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: flex-end !important;
+}
+
+
+/* === HOTFIX #2: layout + hero + menu + logo + scroll === */
+
+/* 0) Stop horizontal weirdness */
+html, body { margin:0 !important; padding:0 !important; overflow-x:hidden !important; }
+
+/* 1) Kill any Olivero grid that leaves a left “block” */
+.dialog-off-canvas-main-canvas,
+#page,
+.page-wrapper,
+.region,
+.region--content,
+#content {
+  width:100% !important;
+  max-width:none !important;
+  margin:0 !important;
+  padding:0 !important;
+}
+
+/* 2) Make sidebar not influence layout at all */
+.region--sidebar-first{
+  width:0 !important;
+  max-width:0 !important;
+  padding:0 !important;
+  margin:0 !important;
+}
+.region--sidebar-first > * { position:absolute !important; }
+
+/* 3) Branding: logo bigger + text hidden + no background */
+.site-branding__text { display:none !important; }
+.site-branding__logo img{
+  width: 94px !important;   /* ~ +30% from 72px */
+  height:auto !important;
+}
+#block-ternozor-site-branding,
+.site-branding__inner {
+  background:transparent !important;
+  box-shadow:none !important;
+}
+
+/* 4) Menu: move up “one line” */
+.primary-nav{
+  top: 10px !important;     /* was ~26px */
+}
+
+/* 5) Hero: full viewport, centered text, 30% smaller title */
+.tern-heroWrap{
+  min-height:100vh !important;
+  width:100vw !important;
+  display:flex !important;
+  align-items:center !important;     /* center vertically */
+}
+.tern-hero__text{
+  width:100% !important;
+  padding: 0 5vw !important;
+  text-align:center !important;      /* center horizontally */
+}
+.tern-hero__title{
+  font-size: clamp(30px, 4.9vw, 64px) !important; /* ~ -30% */
+  white-space: normal !important;    /* allow wrap nicely if needed */
+}
+
+/* 6) Stop “page scroll shvah”: hide page-title/breadcrumb/extra regions under hero */
+#block-ternozor-page-title,
+.region--highlighted,
+.region--breadcrumb,
+.region--secondary-menu {
+  display:none !important;
+}
+
+
+/* === HOTFIX #3: kill left column + make hero FULL-BLEED === */
+
+/* 1) Sidebar region: just remove it completely */
+.region--sidebar-first{ display:none !important; }
+
+/* 2) Remove Olivero width constraints for the content wrappers */
+.region--content.grid-full.layout--pass--content-medium,
+.region--highlighted.grid-full.layout--pass--content-medium,
+.region--breadcrumb.grid-full.layout--pass--content-medium{
+  max-width:none !important;
+  width:100% !important;
+  margin:0 !important;
+  padding:0 !important;
+}
+
+/* 3) True full-bleed hero inside any centered container */
+.tern-section.tern-heroWrap{
+  width:100vw !important;
+  max-width:100vw !important;
+  margin-left:calc(50% - 50vw) !important;
+  margin-right:calc(50% - 50vw) !important;
+  padding:0 !important;
+}
+
+/* 4) Make sure hero background fills and no extra white around */
+.tern-heroWrap{
+  background-size:cover !important;
+  background-position:center !important;
+  min-height:100vh !important;
+}
+
+/* 5) Put logo/menu as overlay so they don’t “live” in the old column */
+#block-ternozor-site-branding{
+  position:fixed !important;
+  top:16px !important;
+  left:16px !important;
+  z-index:9999 !important;
+}
+.primary-nav{
+  position:fixed !important;
+  top:10px !important;
+  left:50% !important;
+  transform:translateX(-50%) !important;
+  z-index:9998 !important;
+}
+
+
+/* === HOTFIX #4: bring logo back + kill extra blocks/scroll on frontpage === */
+
+/* A) Sidebar region: DO NOT display:none (it contains branding). Make it "ghost" */
+.path-frontpage .region--sidebar-first{
+  position:fixed !important;
+  top:0 !important;
+  left:0 !important;
+  width:0 !important;
+  height:0 !important;
+  overflow:visible !important;
+  background:transparent !important;
+  pointer-events:none !important;
+  z-index:9999 !important;
+}
+
+/* Hide page title in sidebar */
+.path-frontpage #block-ternozor-page-title{ display:none !important; }
+
+/* Keep logo visible/clickable */
+.path-frontpage #block-ternozor-site-branding{
+  position:fixed !important;
+  top:16px !important;
+  left:16px !important;
+  z-index:10000 !important;
+  pointer-events:auto !important;
+  margin:0 !important;
+}
+.path-frontpage .site-branding__text{ display:none !important; }
+.path-frontpage .site-branding__logo img{
+  width:84px !important; /* можно потом подкрутить */
+  height:auto !important;
+  display:block !important;
+}
+
+/* B) Kill everything below hero on frontpage (removes white chunk + scroll) */
+.path-frontpage .search-block-form,
+.path-frontpage .region--highlighted,
+.path-frontpage .region--breadcrumb,
+.path-frontpage footer,
+.path-frontpage .footer,
+.path-frontpage .region--footer{
+  display:none !important;
+}
+
+/* C) Make frontpage strictly one-screen */
+.path-frontpage, 
+.path-frontpage body{
+  height:100% !important;
+  overflow:hidden !important;
+  margin:0 !important;
+}
+.path-frontpage #content{
+  margin:0 !important;
+  padding:0 !important;
+}
+
+/* D) Ensure hero fills viewport */
+.path-frontpage .tern-section.tern-heroWrap{
+  min-height:100vh !important;
+}
+
+
+/* === HOTFIX #6: force logo visible on hero (frontpage) === */
+.path-frontpage #block-ternozor-site-branding{
+  position:fixed !important;          /* always visible */
+  top:18px !important;
+  left:18px !important;
+  z-index:9999 !important;
+  display:block !important;
+  background:transparent !important;
+}
+
+/* Hide site name text near logo */
+.path-frontpage #block-ternozor-site-branding .site-branding__text{
+  display:none !important;
+}
+
+/* Make the logo bigger + ensure image is not constrained */
+.path-frontpage #block-ternozor-site-branding .site-branding__logo img{
+  width:110px !important;             /* adjust if needed */
+  height:auto !important;
+  max-width:none !important;
+  display:block !important;
+  filter:drop-shadow(0 6px 18px rgba(0,0,0,.35));
+}
+
+/* Don’t let the sidebar region push layout on frontpage */
+.path-frontpage .region--sidebar-first{
+  position:static !important;
+  width:auto !important;
+  max-width:none !important;
+}
+
+
+/* === FORCE LOGO VISIBLE (final override) === */
+.path-frontpage .region--sidebar-first{
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  background: transparent !important;
+  z-index: 2147483000 !important;
+}
+
+.path-frontpage #block-ternozor-site-branding{
+  position: fixed !important;
+  top: 18px !important;
+  left: 18px !important;
+  z-index: 2147483640 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: none !important;
+  pointer-events: auto !important;
+}
+
+.path-frontpage #block-ternozor-site-branding .site-branding__text{ display:none !important; }
+
+.path-frontpage #block-ternozor-site-branding a.site-branding__logo{
+  display:block !important;
+  visibility:visible !important;
+  opacity:1 !important;
+}
+
+.path-frontpage #block-ternozor-site-branding img{
+  display:block !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  width:110px !important;
+  height:auto !important;
+  max-width:none !important;
+  transform:none !important;
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,.35)) !important;
+}
+
