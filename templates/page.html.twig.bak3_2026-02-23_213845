@@ -1,0 +1,10 @@
+{#
+  Ternozor page override: adds a visible marker to prove theme is used.
+#}
+
+<div style="position:fixed;z-index:99999;bottom:12px;right:12px;background:#B66239;color:#0E0B08;padding:10px 14px;border-radius:999px;font:600 14px/1 system-ui;">
+</div>
+
+{{ page_top }}
+{{ page }}
+{{ page_bottom }}

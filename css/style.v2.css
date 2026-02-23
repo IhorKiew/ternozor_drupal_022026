@@ -407,3 +407,303 @@ body.path-frontpage .primary-nav__menu-link{
   color: rgba(255,255,255,.92) !important;
   text-shadow: 0 2px 14px rgba(0,0,0,.35) !important;
 }
+
+/* ===== Bottom bar (social + phone) ===== */
+.tern-bottombar{
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  z-index: 3000;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 10px 14px;
+  border-radius: 999px;
+
+  background: rgba(10, 14, 20, .28);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow: 0 10px 30px rgba(0,0,0,.18);
+}
+
+.tern-bottombar__icon{
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+
+  color: rgba(255,255,255,.92);
+  text-decoration: none;
+}
+
+.tern-bottombar__icon:hover{
+  background: rgba(255,255,255,.10);
+}
+
+.tern-bottombar__phone{
+  margin-left: 4px;
+  padding-left: 10px;
+  border-left: 1px solid rgba(255,255,255,.20);
+
+  color: rgba(255,255,255,.92);
+  text-decoration: none;
+
+  font-family: "Metropolis", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: .02em;
+}
+
+.tern-bottombar__phone:hover{
+  text-decoration: underline;
+}
+
+/* Mobile: hide phone, keep icons */
+@media (max-width: 520px){
+  .tern-bottombar__phone{ display:none; }
+  .tern-bottombar{ gap: 10px; padding: 10px 12px; }
+}
+
+/* ===== Top nav: same "blue highlight" as bottom icons ===== */
+body .primary-nav__menu-link{
+  border-radius: 999px !important;
+  padding: 10px 14px !important;
+  transition: background .15s ease, color .15s ease, box-shadow .15s ease !important;
+}
+
+/* hover highlight */
+body .primary-nav__menu-link:hover{
+  background: rgba(120, 200, 255, .22) !important; /* голубая подсветка */
+  color: rgba(255,255,255,.98) !important;
+}
+
+/* active link (current page) */
+body .primary-nav__menu-link.is-active,
+body .primary-nav__menu-link[aria-current="page"],
+body .primary-nav__menu-link[aria-current="true"]{
+  background: rgba(120, 200, 255, .30) !important;
+  color: rgba(255,255,255,1) !important;
+  box-shadow: 0 8px 18px rgba(0,0,0,.14) !important;
+}
+
+/* Optional: make "Пожертва" stand out slightly more */
+body .primary-nav__menu-link[href*="donat"],
+body .primary-nav__menu-link[href*="donate"],
+body .primary-nav__menu-link[href*="donation"],
+body .primary-nav__menu-link[href*="pozhertva"],
+body .primary-nav__menu-link[href*="пожертв"]{
+  font-weight: 700 !important;
+}
+
+/* ===== Top nav highlight: subtle, does NOT change layout ===== */
+/* Roll back the "pill padding" that bloated the glass bar */
+body .primary-nav__menu-link{
+  padding: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Keep links readable + smooth */
+body .primary-nav__menu-link{
+  position: relative !important;
+  color: rgba(255,255,255,.86) !important;
+  transition: color .15s ease !important;
+}
+
+/* small underline "chip" */
+body .primary-nav__menu-link::after{
+  content: "" !important;
+  position: absolute !important;
+  left: 50% !important;
+  bottom: -10px !important;
+  transform: translateX(-50%) !important;
+
+  width: 0 !important;
+  height: 6px !important;
+  border-radius: 999px !important;
+
+  background: rgba(120,200,255,.40) !important;
+  opacity: 0 !important;
+  transition: width .18s ease, opacity .18s ease !important;
+}
+
+/* hover: just brighter text + small chip */
+body .primary-nav__menu-link:hover{
+  color: rgba(255,255,255,.98) !important;
+}
+body .primary-nav__menu-link:hover::after{
+  width: 26px !important;
+  opacity: 1 !important;
+}
+
+/* active: brighter + slightly wider chip */
+body .primary-nav__menu-link.is-active,
+body .primary-nav__menu-link[aria-current="page"],
+body .primary-nav__menu-link[aria-current="true"]{
+  color: rgba(255,255,255,1) !important;
+}
+body .primary-nav__menu-link.is-active::after,
+body .primary-nav__menu-link[aria-current="page"]::after,
+body .primary-nav__menu-link[aria-current="true"]::after{
+  width: 34px !important;
+  opacity: 1 !important;
+  background: rgba(120,200,255,.55) !important;
+}
+
+/* ===== Top nav: SIMPLE color highlight only (no layout change) ===== */
+
+/* kill any previous highlight effects */
+body .primary-nav__menu-link{
+  padding: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+body .primary-nav__menu-link::after{ content: none !important; }
+
+/* base + hover + active colors (match bottom vibe) */
+body .primary-nav__menu-link{
+  color: rgba(255,255,255,.86) !important;
+  transition: color .15s ease !important;
+}
+body .primary-nav__menu-link:hover{
+  color: rgba(255,255,255,.92) !important;
+}
+body .primary-nav__menu-link.is-active,
+body .primary-nav__menu-link[aria-current="page"],
+body .primary-nav__menu-link[aria-current="true"]{
+  color: rgba(255,255,255,.98) !important;
+}
+
+/* ===== FIX: remove any blue blocks in top nav (li/wrappers), keep only text color ===== */
+body .primary-nav,
+body .primary-nav *{
+  background: transparent !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+/* Ensure list items can't paint background */
+body .primary-nav__menu,
+body .primary-nav__menu-item,
+body .primary-nav__menu-item *{
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Kill any pseudo-element highlights */
+body .primary-nav__menu-item::before,
+body .primary-nav__menu-item::after,
+body .primary-nav__menu-link::before,
+body .primary-nav__menu-link::after{
+  content: none !important;
+  background: transparent !important;
+}
+
+/* Simple color-only states */
+body .primary-nav__menu-link{
+  color: rgba(255,255,255,.86) !important;
+  transition: color .15s ease !important;
+}
+body .primary-nav__menu-link:hover{
+  color: rgba(255,255,255,.96) !important;
+}
+body .primary-nav__menu-link.is-active,
+body .primary-nav__menu-link[aria-current="page"],
+body .primary-nav__menu-link[aria-current="true"]{
+  color: rgba(255,255,255,1) !important;
+}
+
+/* ===== TOP NAV: remove blue squares, keep ONLY text color change ===== */
+
+/* 1) Never paint background on any menu item/link states */
+body .primary-nav__menu-item,
+body .primary-nav__menu-item:hover,
+body .primary-nav__menu-item:focus,
+body .primary-nav__menu-item:focus-within,
+body .primary-nav__menu-item.is-active,
+body .primary-nav__menu-item.is-active-trail,
+body .primary-nav__menu-link,
+body .primary-nav__menu-link:hover,
+body .primary-nav__menu-link:focus,
+body .primary-nav__menu-link:active,
+body .primary-nav__menu-link.is-active,
+body .primary-nav__menu-link[aria-current="page"],
+body .primary-nav__menu-link[aria-current="true"]{
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* 2) Kill any pseudo-elements that could draw blocks */
+body .primary-nav__menu-item::before,
+body .primary-nav__menu-item::after,
+body .primary-nav__menu-link::before,
+body .primary-nav__menu-link::after{
+  content: none !important;
+  background: transparent !important;
+}
+
+/* 3) ONLY color shift (use same blue as bottom bar) */
+body .primary-nav__menu-link{
+  color: rgba(255,255,255,.86) !important;
+  transition: color .12s ease !important;
+}
+
+body .primary-nav__menu-link:hover,
+body .primary-nav__menu-link:focus{
+  color: rgba(120,200,255,.95) !important; /* голубой как внизу */
+}
+
+/* active */
+body .primary-nav__menu-link.is-active,
+body .primary-nav__menu-link[aria-current="page"],
+body .primary-nav__menu-link[aria-current="true"]{
+  color: rgba(120,200,255,1) !important;
+}
+
+/* ===== Accent color tweak (darker blue) ===== */
+:root{
+  --tern-accent: rgba(70,160,230,1);       /* active */
+  --tern-accent-hover: rgba(70,160,230,.9);/* hover */
+}
+
+/* Top nav */
+body .primary-nav__menu-link:hover,
+body .primary-nav__menu-link:focus{
+  color: var(--tern-accent-hover) !important;
+}
+body .primary-nav__menu-link.is-active,
+body .primary-nav__menu-link[aria-current="page"],
+body .primary-nav__menu-link[aria-current="true"]{
+  color: var(--tern-accent) !important;
+}
+
+/* Bottom bar icons */
+body .tern-bottombar__icon:hover,
+body .tern-bottombar__icon:focus{
+  color: var(--tern-accent-hover) !important;
+}
+body .tern-bottombar__icon.is-active,
+body .tern-bottombar__icon[aria-current="page"],
+body .tern-bottombar__icon[aria-current="true"]{
+  color: var(--tern-accent) !important;
+}
+
+/* ===== Accent color tweak v2 (20% darker) ===== */
+:root{
+  --tern-accent: rgba(55,128,184,1);
+  --tern-accent-hover: rgba(55,128,184,.9);
+}
+
+/* ===== Accent color tweak v3 (45% lighter) ===== */
+:root{
+  --tern-accent: rgba(120,200,255,1);
+  --tern-accent-hover: rgba(120,200,255,.92);
+}

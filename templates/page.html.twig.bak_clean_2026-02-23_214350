@@ -1,0 +1,8 @@
+{#
+  Ternozor page override: adds a visible marker to prove theme is used.
+#}
+
+<!-- TERN OZOR THEME ACTIVE MARKER -->
+{{ page_top }}
+{{ page }}
+{{ page_bottom }}
