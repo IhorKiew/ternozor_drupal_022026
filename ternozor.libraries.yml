@@ -2,3 +2,8 @@ global:
   css:
     theme:
       css/style.v2.css: {}
+
+design1:
+  css:
+    theme:
+      css/design1.css: {}

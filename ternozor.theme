@@ -12,3 +12,12 @@
 function ternozor_page_attachments(array &$attachments): void {
   $attachments['#attached']['library'][] = 'ternozor/global';
 }
+
+/**
+ * Attach Design 1 library on frontpage.
+ */
+function ternozor_preprocess_html(array &$variables) {
+  if (\Drupal::service('path.matcher')->isFrontPage()) {
+    $variables['#attached']['library'][] = 'ternozor/design1';
+  }
+}

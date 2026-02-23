@@ -1,0 +1,24 @@
+/* DESIGN 1 (Donation-style) - base scaffold */
+body.path-frontpage{
+  background:#f7f5f2;
+}
+
+/* Reset our Design 0 overlay behavior for Design 1 (we’ll rebuild header properly) */
+body.path-frontpage #block-ternozor-site-branding,
+body.path-frontpage .primary-nav{
+  position: static !important;
+  transform: none !important;
+}
+
+/* Make header area readable on light background */
+body.path-frontpage .site-header,
+body.path-frontpage .region--sidebar-first{
+  background: transparent !important;
+}
+
+/* Hero container: we will convert it from fullscreen to section-based */
+body.path-frontpage .tern-heroWrap{
+  min-height: auto !important;
+  height: auto !important;
+  overflow: visible !important;
+}
