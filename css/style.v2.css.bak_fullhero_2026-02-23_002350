@@ -1,0 +1,190 @@
+/* Ternozor frontpage HERO "ideal restore" (frontpage-only) */
+
+body.path-frontpage{
+  margin:0 !important;
+  overflow-x:hidden !important;
+  background:#000 !important; /* не будет видно, если hero full-bleed */
+}
+
+/* Убрать/спрятать всё лишнее вокруг hero (Olivero regions) */
+body.path-frontpage .region--breadcrumb,
+body.path-frontpage .region--highlighted,
+body.path-frontpage .region--secondary-menu,
+body.path-frontpage .block-search-narrow,
+body.path-frontpage .block-search-wide,
+body.path-frontpage #block-ternozor-page-title{
+  display:none !important;
+}
+
+/* Снять ограничения ширины/паддинги с контейнеров Olivero */
+body.path-frontpage .dialog-off-canvas-main-canvas,
+body.path-frontpage #content,
+body.path-frontpage .region--content,
+body.path-frontpage .layout--pass--content-medium,
+body.path-frontpage .node,
+body.path-frontpage .node__content,
+body.path-frontpage .text-content{
+  max-width:none !important;
+  width:100% !important;
+  margin:0 !important;
+  padding:0 !important;
+  background:transparent !important;
+}
+
+/* HERO full-bleed */
+body.path-frontpage .tern-heroWrap{
+  position:relative !important;
+  width:100vw !important;
+  min-height:100vh !important;
+  background-image:url("/sites/default/files/2026-02/91621bf1-09d0-4a86-a386-20eca4b312a3.jpg") !important;
+  background-size:cover !important;
+  background-position:center center !important;
+  background-repeat:no-repeat !important;
+  display:flex !important;
+  align-items:flex-end !important;
+}
+
+/* Убрать всё под хиро, чтобы не было скролла/белых блоков снизу (как на твоём идеальном) */
+body.path-frontpage .node__content > *:not(.tern-section.tern-heroWrap){
+  display:none !important;
+}
+
+/* Текст внизу на фото, 1 строка */
+body.path-frontpage .tern-container{ width:100% !important; max-width:none !important; }
+body.path-frontpage .tern-hero__text{ width:100% !important; padding:0 5vw 7vh !important; }
+body.path-frontpage .tern-hero__title{
+  margin:0 !important;
+  font-weight:800 !important;
+  letter-spacing:-0.02em !important;
+  line-height:0.95 !important;
+  font-size:clamp(44px, 7vw, 92px) !important;
+  color:#fff !important;
+  text-shadow:0 6px 28px rgba(0,0,0,.55) !important;
+  white-space:nowrap !important;
+}
+body.path-frontpage .tern-hero__title span{ display:inline !important; margin-right:.25em; }
+
+/* по твоей просьбе: скрыть подзаголовок и кнопки в хиро (потом вернём) */
+body.path-frontpage .tern-hero__lead,
+body.path-frontpage .tern-hero__media,
+body.path-frontpage .tern-hero__actions{
+  display:none !important;
+}
+
+/* LOGO + MENU overlay */
+:root{ --tern-logo: 96px; --tern-pad: 16px; }
+
+body.path-frontpage #block-ternozor-site-branding{
+  position:absolute !important;
+  top:var(--tern-pad) !important;
+  left:var(--tern-pad) !important;
+  z-index:100 !important;
+}
+body.path-frontpage .site-branding__text{ display:none !important; }
+body.path-frontpage .site-branding__logo img{
+  width:var(--tern-logo) !important;
+  height:auto !important;
+  display:block !important;
+}
+
+/* меню по центру и по горизонтали = центр логотипа */
+body.path-frontpage #block-ternozor-main-menu.primary-nav{
+  position:absolute !important;
+  top:calc(var(--tern-pad) + (var(--tern-logo) / 2) - 10px) !important;
+  left:50% !important;
+  transform:translateX(-50%) !important;
+  z-index:90 !important;
+}
+body.path-frontpage .primary-nav__menu{
+  display:flex !important;
+  gap:46px !important;
+  justify-content:center !important;
+  align-items:center !important;
+}
+body.path-frontpage .primary-nav__menu-link{
+  color:#fff !important;
+  font-weight:600 !important;
+  text-decoration:none !important;
+  font-size:18px !important;
+  text-shadow:0 3px 16px rgba(0,0,0,.35) !important;
+}
+
+/* ===== HOTFIX: force HERO image + kill Olivero sidebar strip (frontpage) ===== */
+body.path-frontpage{
+  background:#000 !important;
+}
+
+/* 1) Force hero wrapper to exist and be visible */
+body.path-frontpage .tern-section.tern-heroWrap,
+body.path-frontpage .tern-heroWrap{
+  display:block !important;
+  width:100vw !important;
+  min-height:100vh !important;
+  background-image:url("/sites/default/files/2026-02/91621bf1-09d0-4a86-a386-20eca4b312a3.jpg") !important;
+  background-size:cover !important;
+  background-position:center center !important;
+  background-repeat:no-repeat !important;
+}
+
+/* 2) Remove Olivero width constraints that can “box” the hero */
+body.path-frontpage #content,
+body.path-frontpage .region--content,
+body.path-frontpage .layout--pass--content-medium,
+body.path-frontpage .node,
+body.path-frontpage .node__content,
+body.path-frontpage .text-content{
+  width:100% !important;
+  max-width:none !important;
+  margin:0 !important;
+  padding:0 !important;
+  background:transparent !important;
+}
+
+/* 3) Kill the left sidebar strip visuals (but keep logo overlay) */
+body.path-frontpage .region--sidebar-first{
+  position:static !important;
+  width:0 !important;
+  padding:0 !important;
+  margin:0 !important;
+  background:transparent !important;
+}
+
+/* 4) Brand block overlay, no blue background */
+body.path-frontpage #block-ternozor-site-branding{
+  position:fixed !important;
+  top:16px !important;
+  left:16px !important;
+  z-index:1000 !important;
+  background:transparent !important;
+  padding:0 !important;
+  margin:0 !important;
+}
+body.path-frontpage #block-ternozor-site-branding .site-branding__inner,
+body.path-frontpage #block-ternozor-site-branding .site-branding__logo{
+  background:transparent !important;
+  padding:0 !important;
+  margin:0 !important;
+}
+body.path-frontpage .site-branding__logo img{
+  width:96px !important;
+  height:auto !important;
+  display:block !important;
+}
+
+/* 5) Menu overlay (so it never gets pushed by layout regions) */
+body.path-frontpage #block-ternozor-main-menu.primary-nav{
+  position:fixed !important;
+  top:56px !important; /* под центр логотипа */
+  left:50% !important;
+  transform:translateX(-50%) !important;
+  z-index:900 !important;
+}
+
+/* ===== FAILSAFE: frontpage background on <body> (works even if hero markup differs) ===== */
+body.path-frontpage{
+  background-color:#000 !important;
+  background-image:url("/sites/default/files/2026-02/91621bf1-09d0-4a86-a386-20eca4b312a3.jpg") !important;
+  background-size:cover !important;
+  background-position:center center !important;
+  background-repeat:no-repeat !important;
+}

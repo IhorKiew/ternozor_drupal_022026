@@ -1,0 +1,128 @@
+/* === RESTORE BASELINE (state like your 22:19 screenshot) === */
+
+/* Kill Olivero patterned background / extra wrappers */
+html, body { height:100%; margin:0; padding:0; }
+body{
+  background: transparent !important;
+  background-image: none !important;
+}
+.page-wrapper, .page, .layout-container{
+  background: transparent !important;
+  background-image: none !important;
+}
+
+/* Make content full-bleed */
+#content,
+.region--content,
+.grid-full,
+.layout--pass--content-medium{
+  max-width:none !important;
+  width:100% !important;
+  margin:0 !important;
+  padding:0 !important;
+}
+
+/* Hide breadcrumb/highlight + page title ("Main") on front */
+.path-frontpage .block-page-title-block,
+.path-frontpage .region--breadcrumb,
+.path-frontpage .region--highlighted{
+  display:none !important;
+}
+
+/* Top overlay header (logo left, menu centered) */
+.region--sidebar-first{
+  position:fixed !important;
+  top:0; left:0; right:0;
+  z-index:6000;
+  height:96px;
+  background: transparent !important;
+  pointer-events:none;
+  margin:0 !important;
+  padding:0 !important;
+}
+#block-ternozor-site-branding,
+#block-ternozor-main-menu{
+  pointer-events:auto;
+}
+#block-ternozor-site-branding{
+  position:absolute;
+  left:22px;
+  top:18px;
+}
+.site-branding__text{ display:none !important; }
+.site-branding__logo img{
+  width:140px;
+  height:140px;
+  object-fit:contain;
+  display:block;
+}
+
+/* menu centered, same line height as logo center (approx) */
+#block-ternozor-main-menu{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+}
+.primary-nav__menu{
+  display:flex !important;
+  gap:34px;
+  list-style:none !important;
+  margin:0 !important;
+  padding:0 !important;
+}
+.primary-nav__menu-link{
+  color: rgba(255,255,255,.92) !important;
+  text-decoration:none !important;
+  font-weight:500 !important;
+  font-size:18px !important;
+  line-height:1 !important;
+  text-shadow: 0 2px 14px rgba(0,0,0,.35);
+}
+
+/* HERO full-screen background */
+.tern-heroWrap{
+  min-height:100vh;
+  display:flex;
+  align-items:flex-end; /* title sits low like your screenshot */
+  margin:0 !important;
+  padding:0 !important;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.20) 0%, rgba(0,0,0,.10) 55%, rgba(0,0,0,.22) 100%),
+    url("https://ternozor.org.ua/sites/default/files/2026-02/91621bf1-09d0-4a86-a386-20eca4b312a3.jpg");
+  background-size:cover;
+  background-position:center;
+}
+
+/* inner spacing */
+.tern-container{
+  width:100%;
+  max-width:none !important;
+  padding:0 56px 72px;
+}
+
+/* Title as ONE LINE across like your 22:19 */
+.tern-hero__title{
+  margin:0;
+  display:block;
+  text-align:center;
+  white-space:nowrap;
+  color:#fff;
+  font-weight:800;
+  font-size: clamp(44px, 6.6vw, 92px);
+  line-height:1;
+  letter-spacing:-0.02em;
+  text-transform: uppercase;
+  text-shadow: 0 6px 24px rgba(0,0,0,.35);
+}
+.tern-hero__title span{
+  display:inline;
+  margin-right:.35em;
+  white-space:nowrap;
+}
+.tern-hero__title span:last-child{ margin-right:0; }
+
+/* Hide lead + buttons for now (you asked to do menu first) */
+.tern-hero__lead,
+.tern-hero__actions,
+.tern-hero__media{ display:none !important; }

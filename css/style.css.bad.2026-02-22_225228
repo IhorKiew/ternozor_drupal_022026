@@ -1,0 +1,172 @@
+/* Ternozor theme – restore baseline (NO external fonts) */
+
+/* ===== Reset Olivero content wrappers that create white margins ===== */
+html, body { height: 100%; }
+body { margin: 0; background: transparent; }
+
+.dialog-off-canvas-main-canvas { background: transparent; }
+
+/* Kill Olivero “page title / wrappers” on front page */
+.path-frontpage .region--highlighted,
+.path-frontpage .region--breadcrumb,
+.path-frontpage .block-page-title-block { display: none !important; }
+
+/* Make content go full width */
+#content,
+.region--content,
+.grid-full,
+.layout--pass--content-medium {
+  max-width: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Hide sidebars + default blocks we don't want on hero */
+.region--sidebar-first { display: block; }
+.region--sidebar-first .block-page-title-block { display:none !important; }
+.region--secondary-menu,
+.block-search-narrow,
+.block-search-wide,
+.secondary-nav { display:none !important; }
+
+/* ===== Header overlay (logo left, menu centered) ===== */
+.region--sidebar-first{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 5000;
+  height: 96px;
+  pointer-events: none; /* allow hero click, but enable on links below */
+}
+
+#block-ternozor-site-branding,
+#block-ternozor-main-menu{
+  pointer-events: auto;
+}
+
+#block-ternozor-site-branding{
+  position: absolute;
+  left: 24px;
+  top: 18px;
+}
+
+.site-branding__text{ display:none !important; } /* убираем длинное название рядом с лого */
+
+.site-branding__logo img{
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  display:block;
+}
+
+/* Center menu row on same “line” as logo center */
+#block-ternozor-main-menu{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.primary-nav__menu{
+  display:flex !important;
+  flex-wrap: nowrap !important;
+  gap: 36px;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+.primary-nav__menu-link{
+  color: rgba(255,255,255,.92) !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+  font-size: 20px !important;
+  line-height: 1 !important;
+  letter-spacing: .01em;
+  text-shadow: 0 1px 10px rgba(0,0,0,.35);
+}
+
+.primary-nav__menu-link:hover{
+  color: #fff !important;
+  opacity: 1;
+}
+
+/* ===== Hero ===== */
+.tern-heroWrap{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.25) 0%, rgba(0,0,0,.15) 40%, rgba(0,0,0,.25) 100%),
+    url("https://ternozor.org.ua/sites/default/files/2026-02/91621bf1-09d0-4a86-a386-20eca4b312a3.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.tern-container{
+  width: 100%;
+  max-width: none;
+  padding: 0 56px;
+}
+
+.tern-hero{
+  width: 100%;
+}
+
+/* Big “Debbi-like” word spread */
+.tern-hero__title{
+  margin: 0;
+  color:#fff;
+  font-weight: 800;
+  font-size: clamp(44px, 7.2vw, 96px);
+  line-height: .92;
+  text-transform: uppercase;
+  text-shadow: 0 6px 24px rgba(0,0,0,.35);
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 18px 42px;
+}
+
+.tern-hero__title span{ white-space: nowrap; }
+
+/* (мы договорились временно убрать подзаголовок) */
+.tern-hero__lead{ display:none !important; }
+
+/* Actions */
+.tern-hero__actions{
+  margin-top: 26px;
+  display:flex;
+  gap: 14px;
+  align-items:center;
+}
+
+.tern-hero__actions .button--primary{
+  background: #B66239 !important;
+  color:#0E0B08 !important;
+  border: none !important;
+  border-radius: 999px !important;
+  padding: 12px 18px !important;
+  font-weight: 600 !important;
+  text-decoration:none !important;
+  box-shadow: 0 10px 26px rgba(0,0,0,.25);
+}
+
+.tern-hero__actions .tern-btn--ghost{
+  background: rgba(255,255,255,.10);
+  color: rgba(255,255,255,.92);
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-weight: 600;
+  text-decoration:none;
+  backdrop-filter: blur(6px);
+}
+
+/* Hide hero media placeholder block */
+.tern-hero__media{ display:none !important; }
+
+/* Remove any leftover “white section” feel */
+.path-frontpage .node__content { margin:0 !important; padding:0 !important; }

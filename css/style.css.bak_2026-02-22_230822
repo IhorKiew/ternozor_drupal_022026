@@ -1,0 +1,156 @@
+/* === Ternozor stabilizer: remove Olivero sidebar layout, force hero fullwidth, overlay header === */
+
+/* 0) Safety: don't let layout regions create columns */
+.region--sidebar-first,
+.region--sidebar-second {
+  display: none !important;
+}
+
+.region--content {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Hide Drupal page title ("Main") block from layout */
+#block-ternozor-page-title,
+.block-page-title-block {
+  display: none !important;
+}
+
+/* Optional: hide breadcrumbs/highlighted spacing */
+.region--breadcrumb,
+.region--highlighted {
+  display: none !important;
+}
+
+/* 1) Body/Canvas full bleed */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden;
+}
+.dialog-off-canvas-main-canvas {
+  margin: 0 !important;
+}
+
+/* 2) Put main menu over hero (top center) */
+#block-ternozor-main-menu {
+  position: fixed !important;
+  top: 34px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 10010 !important;
+}
+
+/* Center items */
+#block-ternozor-main-menu .primary-nav__menu {
+  display: flex !important;
+  gap: 42px !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  list-style: none !important;
+}
+
+/* Menu link look */
+#block-ternozor-main-menu a.primary-nav__menu-link {
+  color: rgba(255,255,255,.92) !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+  font-size: 18px !important;
+  letter-spacing: 0.01em !important;
+  text-shadow: 0 2px 18px rgba(0,0,0,.35) !important;
+  padding: 10px 6px !important;
+}
+#block-ternozor-main-menu a.primary-nav__menu-link:hover {
+  color: #fff !important;
+  opacity: 1 !important;
+}
+
+/* 3) Site branding: fixed top-left, logo only */
+#block-ternozor-site-branding {
+  position: fixed !important;
+  top: 20px !important;
+  left: 18px !important;
+  z-index: 10020 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+#block-ternozor-site-branding .site-branding__text,
+#block-ternozor-site-branding .site-branding__name {
+  display: none !important; /* убрать "БО..." */
+}
+#block-ternozor-site-branding img {
+  width: 84px !important;
+  height: 84px !important;
+  object-fit: contain !important;
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,.35));
+}
+
+/* 4) Hero container full viewport */
+.tern-heroWrap {
+  position: relative;
+  width: 100vw;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.tern-heroWrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.20) 45%, rgba(0,0,0,.40) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Use the image from your node body if you set it as background via inline style or CSS class.
+   If your hero is already using background-image via earlier CSS, this overlay will still help. */
+.tern-heroWrap, .tern-hero {
+  min-height: 100vh !important;
+}
+
+/* Make content over overlay */
+.tern-container, .tern-hero, .tern-hero__text {
+  position: relative;
+  z-index: 2;
+}
+
+/* Keep hero text readable over photo */
+.tern-hero__title {
+  color: #fff !important;
+  text-shadow: 0 12px 40px rgba(0,0,0,.55) !important;
+}
+
+/* Hide old hero buttons if they reappear inside body (optional) */
+.tern-hero__actions { display: none !important; }
+
+/* 5) Remove extra bottom white space from Olivero wrappers */
+.text-content,
+.field--name-body,
+.node__content {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* === FIX: force hero background image (your uploaded photo) + remove olivero pattern === */
+body {
+  background: #0b0b0b !important; /* kill raindrop pattern background */
+}
+
+/* Put your photo as hero background */
+.tern-heroWrap {
+  background-image: url("/sites/default/files/2026-02/91621bf1-09d0-4a86-a386-20eca4b312a3.jpg") !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Ensure no inner element paints its own background */
+.tern-hero, .tern-container, .node__content, .text-content {
+  background: transparent !important;
+}
+

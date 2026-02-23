@@ -1,0 +1,83 @@
+/* Ternozor baseline restore (known-good) */
+
+/* 0) Kill Olivero body background/pattern */
+body { background:#000 !important; }
+
+/* 1) HERO full-bleed background */
+.tern-heroWrap{
+  background-image:url("/sites/default/files/2026-02/91621bf1-09d0-4a86-a386-20eca4b312a3.jpg") !important;
+  background-size:cover !important;
+  background-position:center center !important;
+  background-repeat:no-repeat !important;
+  min-height:100vh !important;
+  display:flex !important;
+  align-items:flex-end !important; /* title low */
+}
+
+/* 2) Make inner containers transparent */
+.tern-hero, .tern-container, .node__content, .text-content{ background:transparent !important; }
+
+/* 3) Layout: remove width constraints inside hero */
+.tern-container{ width:100% !important; max-width:none !important; padding:0 !important; }
+
+/* 4) Title: one line, big, near bottom */
+.tern-hero__text{ width:100% !important; padding:0 5vw 8vh !important; }
+.tern-hero__title{
+  margin:0 !important;
+  font-weight:800 !important;
+  letter-spacing:-0.02em !important;
+  line-height:0.95 !important;
+  font-size:clamp(44px, 7vw, 92px) !important;
+  color:#fff !important;
+  text-shadow:0 6px 28px rgba(0,0,0,.55) !important;
+
+  /* Force single line behavior (no spans stacking) */
+  white-space:nowrap !important;
+}
+
+/* If title built from spans, keep them inline */
+.tern-hero__title span{ display:inline !important; margin-right:.25em; }
+
+/* 5) Hide the extra lead text for now (per your request) */
+.tern-hero__lead, .tern-hero__media { display:none !important; }
+
+/* 6) Buttons: hide for now (we’ll rebuild later as “Debbi-like”) */
+.tern-hero__actions{ display:none !important; }
+
+/* 7) Menu: centered at top, overlay */
+.primary-nav{
+  position:absolute !important;
+  top:26px !important;
+  left:50% !important;
+  transform:translateX(-50%) !important;
+  z-index:50 !important;
+}
+.primary-nav__menu{
+  display:flex !important;
+  gap:46px !important;
+  justify-content:center !important;
+}
+.primary-nav__menu-link{
+  color:#fff !important;
+  font-weight:600 !important;
+  text-decoration:none !important;
+  font-size:18px !important;
+  text-shadow:0 3px 16px rgba(0,0,0,.35) !important;
+}
+
+/* 8) Logo: top-left overlay */
+#block-ternozor-site-branding{
+  position:absolute !important;
+  top:16px !important;
+  left:16px !important;
+  z-index:60 !important;
+}
+.site-branding__text{ display:none !important; }
+.site-branding__logo img{
+  width:72px !important;
+  height:auto !important;
+  display:block !important;
+}
+
+/* 9) Remove page title block (Main) */
+#block-ternozor-page-title{ display:none !important; }
