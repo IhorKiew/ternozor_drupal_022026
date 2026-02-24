@@ -63,3 +63,17 @@
 /drush
 /drupal.phar
 /drupal
+
+# Local backups / artifacts
+backups/
+*.bak
+*.bak_*
+*.before_*
+*.BROKEN*
+*.CURRENT*
+*.broken*
+*.bad*
+*.tmp
+*.swp
+*.swo
+*.orig
