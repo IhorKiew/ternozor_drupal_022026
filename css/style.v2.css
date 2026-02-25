@@ -934,3 +934,151 @@ body .primary-nav__menu-link::after{
   content: none !important;
 }
 
+
+/* ===== Bottom bar: make tern-social__link look identical to tern-bottombar__icon ===== */
+.tern-bottombar{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap: 14px !important;
+}
+
+/* Treat both classes the same */
+.tern-bottombar__icon,
+.tern-social__link{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width: 38px !important;
+  height: 38px !important;
+  border-radius: 999px !important;
+  text-decoration: none !important;
+}
+
+/* Icon size & color */
+.tern-bottombar__icon svg,
+.tern-social__link svg{
+  width: 18px !important;
+  height: 18px !important;
+  fill: currentColor !important;
+}
+
+/* Hover/active — same blue you use */
+.tern-bottombar__icon:hover,
+.tern-social__link:hover{
+  color: rgba(120,200,255,.98) !important;
+}
+
+/* Phone link alignment */
+.tern-bottombar__phone{
+  display:inline-flex !important;
+  align-items:center !important;
+  height: 38px !important;
+}
+
+
+/* Bottom bar: icons default WHITE, blue only on hover/active */
+.tern-bottombar__icon,
+.tern-social__link{
+  color: rgba(255,255,255,.90) !important;
+}
+
+.tern-bottombar__icon:hover,
+.tern-social__link:hover{
+  color: rgba(120,200,255,.98) !important;
+}
+
+/* active (если захочешь назначать классом) */
+.tern-bottombar__icon.is-active,
+.tern-social__link.is-active{
+  color: rgba(120,200,255,.98) !important;
+}
+
+/* Cover both types of SVG icons: fill + stroke */
+.tern-bottombar__icon svg,
+.tern-social__link svg{
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+
+/* =========================
+   Fonts: Lato (UI) + Oswald (Headings)
+   ========================= */
+:root{
+  --tern-font-ui: "Lato", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --tern-font-head: "Oswald", "Lato", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* Base text */
+body{
+  font-family: var(--tern-font-ui) !important;
+}
+
+/* Navigation + small UI */
+.primary-nav__menu-link,
+.tern-bottombar__phone{
+  font-family: var(--tern-font-ui) !important;
+  letter-spacing: .02em;
+}
+
+/* Headings */
+h1,h2,h3,
+.page-title,
+.tern-hero__title{
+  font-family: var(--tern-font-head) !important;
+  letter-spacing: .03em;
+  text-transform: uppercase; /* remove if you don't want caps */
+}
+
+/* ===== Fonts: Lato (UI) + Oswald (headlines) ===== */
+body{
+  font-family: "Lato", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif !important;
+}
+
+/* Top navigation */
+.primary-nav__menu-link,
+.primary-nav__menu-link-inner{
+  font-family: "Lato", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif !important;
+  letter-spacing: 0.02em !important;
+}
+
+/* Hero headline + page titles */
+.tern-hero__title,
+h1, h2{
+  font-family: "Oswald", "Lato", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif !important;
+  letter-spacing: 0.01em !important;
+}
+
+/* ===== Fonts (safe override) ===== */
+/* Base UI font */
+:root{
+  --tern-font-ui: "Lato", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --tern-font-head: "Oswald", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* Body + UI */
+html, body{
+  font-family: var(--tern-font-ui) !important;
+}
+
+/* Primary nav */
+.primary-nav__menu,
+.primary-nav__menu-link,
+.tern-bottombar,
+.tern-bottombar__phone{
+  font-family: var(--tern-font-ui) !important;
+}
+
+/* Headings */
+h1, h2, h3,
+.page-title,
+.tern-hero__title{
+  font-family: var(--tern-font-head) !important;
+  letter-spacing: 0.02em; /* чуть “плакатнее”, но мягко */
+}
+
+/* Optional: make hero title a bit more “poster” */
+.tern-hero__title{
+  text-transform: uppercase;
+}
+

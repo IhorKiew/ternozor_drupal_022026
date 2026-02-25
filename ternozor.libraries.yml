@@ -7,3 +7,14 @@ design1:
   css:
     theme:
       css/design1.css: {}
+
+fonts:
+  remote: https://fonts.googleapis.com
+  version: 1.x
+  license:
+    name: SIL Open Font License, 1.1
+    url: https://scripts.sil.org/OFL
+    gpl-compatible: true
+  css:
+    theme:
+      https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600;700&family=Oswald:wght@300;400;500;600;700&display=swap: { type: external }
